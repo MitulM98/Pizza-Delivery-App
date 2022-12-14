@@ -1,0 +1,15 @@
+{{> menu-nav}}
+
+<div class="container">
+    <form method="post" action="/profile/resetpass-action">
+        <div class="mb-3 mt-5">
+            {{#if succ}}
+                <h5 class="alert alert-success">Password Change Successfully</h5>
+            {{/if}}
+            <label for="exampleInputEmail1" class="form-label">Enter Your New Password</label>
+            <input name="pass" type="password" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+        </div>
+        <button type="submit" class="btn btn-warning">Change Password</button>
+    </form>
+</div>

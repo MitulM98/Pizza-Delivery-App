@@ -16,7 +16,7 @@
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #adc1d4;
+    background-color: #d1af3f;
     color: black;
     /* chansss */
 }
@@ -29,7 +29,8 @@
 /* Right-aligned section inside the top navigation */
 .topnav-right {
     float: right;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(212, 207, 136);
 }
 
 .nav-img{

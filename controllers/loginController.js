@@ -1,5 +1,6 @@
 const userModel = require('../model/registSchema');
 const mod = require('../packages');
+const {validationResult} = mod.express_validator;
 const bcrypt = mod.bcrypt;
 
 const loginPage = (req, res) => {
@@ -7,6 +8,11 @@ const loginPage = (req, res) => {
 }
 
 const login = async (req, res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        const alert = errors.array();
+        res.render('login', { style: 'login.css', title: 'Login', nav: 'nav.css', alert })
+    }
     let { email, pass } = req.body;
     await userModel.findOne({ email: email })
         .then(data => {

@@ -2,6 +2,11 @@
 
 <div class="container">
     <div class="mt-5">
+        {{#if alert}}
+        <div class="alert alert-danger" role="alert">
+            <h4>Invalid Email And Password</h4>
+        </div>
+        {{/if}}
         {{#if flag}}
         <h5 class="alert alert-danger">Invalid Email And Password</h5>
         {{/if}}

@@ -8,7 +8,7 @@ const {menuList, addFood, insertFood, addCart, deleteCart, logout, creditAction,
 var upload = multer({
     storage: multer.diskStorage({
         destination: (req, res, cb) => {
-            cb(null, './uploads');
+            cb(null, '/uploads');
         },
         filename: (req, file, cb) => {
             cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));

@@ -10,7 +10,8 @@ const mod = {
     sessions : require('express-session'),
     bcrypt : require('bcrypt'),
     path : require('path'),
-    cookieParser : require('cookie-parser')
+    cookieParser : require('cookie-parser'),
+    express_validator : require('express-validator')
 }
 
 module.exports = mod;

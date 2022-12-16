@@ -49,13 +49,27 @@ const checkout = (req, res) => {
 }
 
 const creditAction = async (req, res) => {
-    const creditNum = req.body.creditNum;
+    const creditCard = req.body.creditNum;
+    
+    // Validtion for Credit-Card
+    if(creditCard.length != 16){
+        res.render('checkoutPage', {title: 'Checkout', nav: 'menunav.css', flag : true });
+    }
+    if(creditCard.length == 16){
+        for(let i = 0; i < creditCard.length; i++){
+            if(+creditCard[i] >= 0 && +creditCard[i] <= 9){}
+            else {
+                res.render('checkoutPage', {title: 'Checkout', nav: 'menunav.css', flag : true });
+            }
+        }
+    }
+
     const id = req.session.foodID;
     const personData = await userModel.findOne({email : req.session.email});
     const foodProduct = await foodModel.findOne({_id : id});
     try{
         let mailOption = {
-            from : 'beastfake8@gmail.com',
+            from : process.env.EMAIL,
             to : req.session.email,
             subject : 'Your Pizza order from Just Pizza',
             template : 'main',
@@ -66,10 +80,13 @@ const creditAction = async (req, res) => {
                 phone : personData.phone,
                 foodID : foodProduct._id,
                 foodName : foodProduct.foodName,
-                foodPrice : foodProduct.foodPrice
+                foodPrice : foodProduct.foodPrice,
             }
         }
-        // implement from here.........
+        transporter.sendMail(mailOption, (err) => {
+            if(err) throw err;
+            else res.render('orderpage', {title : 'Order has been paid', nav : 'menunav.css'})
+        })
     }
     catch(err){
         console.log(err);
@@ -77,6 +94,7 @@ const creditAction = async (req, res) => {
 }
 
 const logout = (req, res) => {
+    // Destroy session data
     req.session.destroy();
     res.render('home', { nav: 'nav.css', style: 'home.css', title: 'Pizza App' });
 }

@@ -1,6 +1,7 @@
 const mod = require('../packages');
 const mongoose = mod.mongoose;
 
+// DB Connectivity
 const db = process.env.DB;
 
 mongoose.set('strictQuery', true);

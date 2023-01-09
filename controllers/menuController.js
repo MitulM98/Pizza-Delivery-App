@@ -4,6 +4,7 @@ const transporter = require('../mail/mail');
 
 const menuList = async (req, res) => {
     const foodItem = await foodModel.find();
+    console.log(foodItem);
     res.render('menulist', { item: foodItem, title: 'Menu List', nav: 'menunav.css', style: 'menulist.css' });
 }
 

@@ -1,4 +1,5 @@
 const mod = require('../packages');
+const auth = require('../middleware/auth');
 const path = mod.path;
 const router = mod.express.Router();
 const multer = require('../packages').multer;
@@ -22,7 +23,7 @@ router.get('/addfood', addFood);
 router.post('/food-data', upload.single('fImg'), insertFood);
 router.get('/cart/:id', addCart);
 router.get('/delete-cart', deleteCart);
-router.get('/checkout', checkout);
+router.get('/checkout', auth, checkout);
 router.post('/credit-action', creditAction);
 router.get('/logout', logout);
 

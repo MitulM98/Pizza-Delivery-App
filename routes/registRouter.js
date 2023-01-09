@@ -1,6 +1,6 @@
 const mod = require('../packages');
 const router = mod.express.Router();
-const {check, validationResult} = mod.express_validator;
+const {check} = mod.express_validator;
 const {registPage, insertData} = require('../controllers/registController');
 
 // defining all the routes of register page with all the validations

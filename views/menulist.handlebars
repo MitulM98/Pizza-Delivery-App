@@ -3,22 +3,21 @@
 <div class="container">
     <h2 class="heading">Pizzazzio</h2>
     <div class="row">
-            {{#each item}}
-            <div class="card col-md-3 m-4 mx-auto" style="width: 20rem;">
-                <img src='/pizzaImg/{{foodImg}}' class="card-img-top"
-                    alt="err">
-                <div class="card-body">
-                    <h5 class="card-title text-center">{{foodName}}</h5>
-                    <div class="row">
-                        <div class="col">
-                            <a href="/menu/cart/{{_id}}" class="btn btn-danger">Add to cart</a>
-                        </div>
-                        <div class="col">
-                            <h5 class="text-center">${{foodPrice}}</h5>
-                        </div>
+        {{#each item}}
+        <div class="card col-md-3 m-4 mx-auto" style="width: 20rem;">
+            <img src='/pizzaImg/{{foodImg}}' class="card-img-top" alt="err">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{foodName}}</h5>
+                <div class="row">
+                    <div class="col">
+                        <a href="/menu/cart/{{_id}}" class="btn btn-danger">Add to cart</a>
+                    </div>
+                    <div class="col">
+                        <h5 class="text-center">${{foodPrice}}</h5>
                     </div>
                 </div>
             </div>
+        </div>
         {{/each}}
     </div>
 </div>
